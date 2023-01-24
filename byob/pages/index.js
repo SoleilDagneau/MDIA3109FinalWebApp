@@ -16,6 +16,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
+          <h1>I'm in!</h1>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.js</code>
