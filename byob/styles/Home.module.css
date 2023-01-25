@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 .main {
   display: flex;
   flex-direction: column;
@@ -5,6 +7,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background: radial-gradient(50% 50% at 50% 50%, #502B78 0%, #1B1B39 100%); 
 }
 
 .description {
@@ -78,6 +81,14 @@
   align-items: center;
   position: relative;
   padding: 4rem 0;
+}
+
+.h3 {
+  color: #FCD581;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
 }
 
 .center::before {
