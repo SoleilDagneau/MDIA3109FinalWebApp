@@ -7,6 +7,20 @@
   min-height: 100vh;
   background: radial-gradient(50% 50% at 50% 50%, #502B78 0%, #1B1B39 100%); 
 }
+.main1 {
+  
+  min-height: 100vh;
+  background: radial-gradient(50% 50% at 50% 50%, #502B78 0%, #1B1B39 100%); 
+}
+.resultimg {
+  margin: 60px;
+  display: grid;
+grid-gap: 4rem;
+grid-template-columns: 0.5fr 0.5fr;
+grid-template-rows: 1fr 1fr;
+
+
+}
 
 .description {
   display: inherit;
@@ -81,6 +95,24 @@
   padding: 4rem 0;
 }
 
+.h1 {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.h2 {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: left;
+  padding-left: 20px;
+}
+
 .h3 {
   color: #FCD581;
   font-family: 'Quicksand', sans-serif;
@@ -88,7 +120,22 @@
   font-weight: 300;
   text-align: center;
 }
+.ingredient {
+  color: #FCD581;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  display: block;
+  
+}
 
+.drinkname {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  
+}
 .center::before {
   background: var(--secondary-glow);
   border-radius: 50%;
