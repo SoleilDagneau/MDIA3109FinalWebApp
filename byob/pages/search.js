@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Edu_NSW_ACT_Foundation, Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
 import Button from '@/components/button'
 import Input from '@/components/input'
+import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
 const Logo = styled.img`
@@ -24,6 +26,13 @@ padding: 10px;
 `
 
 export default function Home() {
+
+  const RandDrink = async () => {
+    const res = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
+    console.log(res);
+
+  }
+
   return (
     <>
       <Head>
@@ -34,18 +43,37 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div>
-            <Banner src='/cocktailbanner.png' />
+          <Banner src='/cocktailbanner.png' />
         </div>
         <div>
-            <Logo src='/BYOBLOGO.png' />
+          <Logo src='/BYOBLOGO.png' />
         </div>
-        <Input txt='enter a cocktail name'/>
-        <Input txt='search by ingredients'/>
+        <Input txt='enter a cocktail name' />
+        <Input txt='search by ingredients' />
         <br />
         <h3 className={styles.h3}>OR</h3>
         <ButtonCont>
-          <Button wd='7rem' labeltxt='Generate Random Cocktail' bg='#F4681E' marg='10px' wt='300' pad='10px' size='16px'/>
-          <Button wd='7rem' labeltxt='Generate Random Mocktail' bg='#D8334F' marg='10px' wt='300' pad='10px' size='16px'/>
+          <Link href="/results">
+            <Button
+              onClick={() => RandDrink()}
+              wd='7rem'
+              labeltxt='Generate Random Cocktail'
+              bg='#F4681E'
+              marg='10px'
+              wt='300'
+              pad='10px'
+              size='16px'
+            />
+          </Link>
+          <Button
+            wd='7rem'
+            labeltxt='Generate Random Mocktail'
+            bg='#D8334F'
+            marg='10px'
+            wt='300'
+            pad='10px'
+            size='16px'
+          />
         </ButtonCont>
       </main>
     </>
