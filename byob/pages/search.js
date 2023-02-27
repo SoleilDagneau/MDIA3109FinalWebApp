@@ -28,9 +28,10 @@ padding: 10px;
 `
 
 export default function Home() {
-  const [drinkData, setDrinkData] = useState({});
   const router = useRouter();
+  const [drinkData, setDrinkData] = useState({});
   const [drinkName, setDrinkName] = useState('');
+  const [drinkIngredient, setDrinkIngredient] = useState('');
   const [error, setErrorMessage] = useState('');
 
   const randDrink = async () => {
@@ -60,9 +61,25 @@ export default function Home() {
           console.log(err);
           setErrorMessage("Enter another name")
           setData({});
-          setWeather();
         })
       setDrinkName('')
+    }
+  }
+
+  const searchDrinkIngredient = (event) => {
+    if (event.key === "Enter") {
+      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngredient}`)
+        .then((response) => {
+          console.clear();
+          setDrinkData(response.data)
+          console.log(response.data);
+          setErrorMessage("");
+        }).catch(err => {
+          console.log(err);
+          setErrorMessage("Enter another ingredient")
+          setData({});
+        })
+      setDrinkIngredient('')
     }
   }
 
@@ -81,14 +98,20 @@ export default function Home() {
         <div>
           <Logo src='/BYOBLOGO.png' />
         </div>
-        <Input
+        <input
           txt='enter a cocktail name'
           value={drinkName}
           onChange={event => setDrinkName(event.target.value)}
           onKeyDown={searchDrinkName}
           type="text"
         />
-        <Input txt='search by ingredients' />
+        <input
+          txt='search by ingredients'
+          value={drinkIngredient}
+          onChange={event => setDrinkIngredient(event.target.value)}
+          onKeyDown={searchDrinkIngredient}
+          type="text"
+        />
         <br />
         <h3 className={styles.h3}>OR</h3>
         <ButtonCont>
