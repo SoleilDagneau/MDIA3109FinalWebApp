@@ -2,12 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Edu_NSW_ACT_Foundation, Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
-
 export default function Results() {
+  const router = useRouter();
+  const query = router.query;
+  const foundData = query.drinkData;
+  console.log(foundData);
+
   return (
     <>
       <Head>
@@ -17,18 +21,19 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main1}>
-      <h1 className={styles.h1}>YOUR SEARCH</h1>
-      <h2 className={styles.h2}>INGREDIENTS: "vodka"</h2>
-      <div className={styles.resultimg}> 
-      <figure>
-         <img src="/drink1.png" />
-        <figcaption>
-        <h2 className={styles.drinkname}> CRANTINI</h2>
-          <h3 className={styles.ingredient}>Vodka Citron</h3>
-        </figcaption>
-    </figure>
+        <h1 className={styles.h1}>YOUR SEARCH</h1>
+        <h2 className={styles.h2}>INGREDIENTS: "vodka"</h2>
+        <div className={styles.resultimg}>
 
-    <figure>
+          <figure>
+            <img src="/drink1.png" />
+            <figcaption>
+              <h2 className={styles.drinkname}> CRANTINI</h2>
+              <h3 className={styles.ingredient}>Vodka Citron</h3>
+            </figcaption>
+          </figure>
+
+          <figure>
          <img src="/drink2.png" />
         <figcaption>
         <h2 className={styles.drinkname}> COSMOPOLITAN</h2>
@@ -66,12 +71,8 @@ export default function Results() {
         <h2 className={styles.drinkname}> COSMOPOLITAN</h2>
           <h3 className={styles.ingredient}>Vodka Citron</h3>
         </figcaption>
-    </figure>
-
-          
-      </div>
-        
-
+    </figure>    
+        </div>
       </main>
     </>
   )

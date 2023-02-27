@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import Button from '@/components/button'
 import Input from '@/components/input'
 import axios from 'axios'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 const Logo = styled.img`
@@ -26,11 +28,42 @@ padding: 10px;
 `
 
 export default function Home() {
+  const [drinkData, setDrinkData] = useState({});
+  const router = useRouter();
+  const [drinkName, setDrinkName] = useState('');
+  const [error, setErrorMessage] = useState('');
 
-  const RandDrink = async () => {
+  const randDrink = async () => {
     const res = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
+    setDrinkData(res);
     console.log(res);
+    // changePage();
+  }
 
+  const changePage = async () => {
+    router.push({
+      pathname: '/results',
+      query: drinkData,
+    });
+  }
+
+  const searchDrinkName = (event) => {
+    if (event.key === "Enter") {
+      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
+        .then((response) => {
+          console.clear();
+          setDrinkData(response.data)
+          console.log(response.data);
+          setDrinkName(response.data.drinks.strDrink);
+          setErrorMessage("");
+        }).catch(err => {
+          console.log(err);
+          setErrorMessage("Enter another name")
+          setData({});
+          setWeather();
+        })
+      setDrinkName('')
+    }
   }
 
   return (
@@ -48,23 +81,33 @@ export default function Home() {
         <div>
           <Logo src='/BYOBLOGO.png' />
         </div>
-        <Input txt='enter a cocktail name' />
+        <Input
+          txt='enter a cocktail name'
+          value={drinkName}
+          onChange={event => setDrinkName(event.target.value)}
+          onKeyDown={searchDrinkName}
+          type="text"
+        />
         <Input txt='search by ingredients' />
         <br />
         <h3 className={styles.h3}>OR</h3>
         <ButtonCont>
-          <Link href="/results">
-            <Button
-              onClick={() => RandDrink()}
-              wd='7rem'
-              labeltxt='Generate Random Cocktail'
-              bg='#F4681E'
-              marg='10px'
-              wt='300'
-              pad='10px'
-              size='16px'
-            />
-          </Link>
+          {/* <Link
+            href={{
+              pathname: "/results",
+              query: drinkData,
+            }}> */}
+          <Button
+            onClick={() => randDrink()}
+            wd='7rem'
+            labeltxt='Generate Random Cocktail'
+            bg='#F4681E'
+            marg='10px'
+            wt='300'
+            pad='10px'
+            size='16px'
+          />
+          {/* </Link> */}
           <Button
             wd='7rem'
             labeltxt='Generate Random Mocktail'
