@@ -1,0 +1,40 @@
+import 'leaflet/dist/leaflet.css'
+import 'leaflet-defaulticon-compatibility'
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
+import styles from '@/styles/Home.module.css'
+import data from 'data/points.json'
+import '@fontawesome/fontawesome-free/css/all.css';
+import L from 'leaflet';
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
+
+export default function Map() {
+
+    const position = [49.28594, -123.11129];
+    const data = require('data/points.json');
+
+    const icon = L.divIcon({
+        html: '<i class="fas fa-map-marker-alt fa-3x"></i>',
+        iconSize: [30, 30],
+        className: 'leaflet-div-icon',
+      });
+
+
+    return (
+        <MapContainer className={styles.map} center={position} zoom={14} scrollWheelZoom={true}>
+             <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {data.map((marker) => (
+                <Marker position={[marker.lat, marker.lng]} icon={icon}>
+                    <div>
+                        <Popup>{marker.name} <br/> {marker.bar}</Popup>
+                    </div>
+
+                </Marker>
+            ))}
+        </MapContainer>
+    )
+}
