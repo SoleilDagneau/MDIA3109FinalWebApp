@@ -20,7 +20,7 @@ import {
 export default function Map() {
 
     const trainIcon = new Icon({
-        iconUrl: "next.svg",
+        iconUrl: "heart.png",
         iconSize: [40, 40]
     });
 

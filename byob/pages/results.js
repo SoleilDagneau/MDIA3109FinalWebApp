@@ -3,14 +3,28 @@ import Image from 'next/image'
 import { Edu_NSW_ACT_Foundation, Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Results() {
-  const router = useRouter();
-  const query = router.query;
-  const foundData = query.drinkData;
-  console.log(foundData);
+export default function Results({passDrinkData}) {
+
+  const [passedDrinkData, setPassedDrinkData] = useState();
+
+  console.log(passedDrinkData);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPassedDrinkData(passDrinkData);
+    }, 1000);
+  }, [passDrinkData])
+  
+  // const router = useRouter();
+  // const query = router.query;
+  // const foundData = query.drinkData;
+  // console.log(foundData);
+
+
 
   return (
     <>
@@ -25,7 +39,17 @@ export default function Results() {
         <h2 className={styles.h2}>INGREDIENTS: "vodka"</h2>
         <div className={styles.resultimg}>
 
+          {
+            passDrinkData.length > 0  ? <div>test {passDrinkData.strDrink}</div> : <></>
+          }
+
           <figure>
+
+            {
+              passedDrinkData ? passedDrinkData.data?.drinks[0].strDrink : <></>
+            }
+
+
             <img src="/drink1.png" />
             <figcaption>
               <h2 className={styles.drinkname}> CRANTINI</h2>

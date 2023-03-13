@@ -9,6 +9,7 @@ import Input from '@/components/input'
 import axios from 'axios'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Results from './results'
 
 const inter = Inter({ subsets: ['latin'] })
 const Logo = styled.img`
@@ -34,19 +35,31 @@ export default function Home() {
   const [drinkIngredient, setDrinkIngredient] = useState('');
   const [error, setErrorMessage] = useState('');
 
+  const [isActiveOne, setIsActiveOne] = useState(true);
+  const [isActiveTwo, setIsActiveTwo] = useState(false);
+  
+
   const randDrink = async () => {
     const res = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
     setDrinkData(res);
     console.log(res);
-    // changePage();
+
+    setTimeout(() => {
+      setIsActiveOne(false);
+      setIsActiveTwo(true);
+    }, 500);
+    
+    //changePage();
   }
 
-  const changePage = async () => {
-    router.push({
-      pathname: '/results',
-      query: drinkData,
-    });
-  }
+  //const changePage = async () => {
+  //   router.push({
+  //     pathname: '/results',
+  //     query: {
+  //       data: drinkData
+  //     },
+  //   });
+  // }
 
   const searchDrinkName = (event) => {
     if (event.key === "Enter") {
@@ -92,55 +105,65 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div>
-          <Banner src='/cocktailbanner.png' />
-        </div>
-        <div>
-          <Logo src='/BYOBLOGO.png' />
-        </div>
-        <input
-          txt='enter a cocktail name'
-          value={drinkName}
-          onChange={event => setDrinkName(event.target.value)}
-          onKeyDown={searchDrinkName}
-          type="text"
-        />
-        <input
-          txt='search by ingredients'
-          value={drinkIngredient}
-          onChange={event => setDrinkIngredient(event.target.value)}
-          onKeyDown={searchDrinkIngredient}
-          type="text"
-        />
-        <br />
-        <h3 className={styles.h3}>OR</h3>
-        <ButtonCont>
-          {/* <Link
-            href={{
-              pathname: "/results",
-              query: drinkData,
-            }}> */}
-          <Button
-            onClick={() => randDrink()}
-            wd='7rem'
-            labeltxt='Generate Random Cocktail'
-            bg='#F4681E'
-            marg='10px'
-            wt='300'
-            pad='10px'
-            size='16px'
+        
+        <div style={{display: isActiveOne ? 'block' : 'none'}}>
+
+          <div>
+            <Banner src='/cocktailbanner.png' />
+          </div>
+          <div>
+            <Logo src='/BYOBLOGO.png' />
+          </div>
+          <input
+            txt='enter a cocktail name'
+            value={drinkName}
+            onChange={event => setDrinkName(event.target.value)}
+            onKeyDown={searchDrinkName}
+            type="text"
           />
-          {/* </Link> */}
-          <Button
-            wd='7rem'
-            labeltxt='Generate Random Mocktail'
-            bg='#D8334F'
-            marg='10px'
-            wt='300'
-            pad='10px'
-            size='16px'
+          <input
+            txt='search by ingredients'
+            value={drinkIngredient}
+            onChange={event => setDrinkIngredient(event.target.value)}
+            onKeyDown={searchDrinkIngredient}
+            type="text"
           />
-        </ButtonCont>
+          <br />
+          <h3 className={styles.h3}>OR</h3>
+          <ButtonCont>
+            {/* <Link
+              href={{
+                pathname: "/results",
+                query: drinkData,
+              }}> */}
+
+            
+            <Button
+              onClick={() => randDrink()}
+              wd='7rem'
+              labeltxt='Generate Random Cocktail'
+              bg='#F4681E'
+              marg='10px'
+              wt='300'
+              pad='10px'
+              size='16px'
+            />
+            {/* </Link> */}
+            <Button
+              wd='7rem'
+              labeltxt='Generate Random Mocktail'
+              bg='#D8334F'
+              marg='10px'
+              wt='300'
+              pad='10px'
+              size='16px'
+            />
+          </ButtonCont>
+        </div>
+        
+        <div style={{display: isActiveTwo ? 'block' : 'none'}}>
+            <Results passDrinkData={drinkData}/>
+        </div>
       </main>
     </>
   )
