@@ -77,7 +77,7 @@ export default function Results() {
             onChange={(e) => setName(e.target.value)}
           />
           <Button labeltxt="Search" onClick={searchCocktailsByName} />
-        </div>
+</div>
 
 
 

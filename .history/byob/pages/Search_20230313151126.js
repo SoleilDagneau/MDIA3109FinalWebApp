@@ -69,6 +69,7 @@ export default function Home() {
 
           <Button onClick={handleGenerateRandomCocktails} wd='7rem' labeltxt='Generate Random Cocktails' bg='#F4681E' marg='10px' wt='300' pad='10px' size='16px'/>
 
+
           <Button wd='7rem' labeltxt='Generate Random Mocktail' bg='#D8334F' marg='10px' wt='300' pad='10px' size='16px'/>
         </ButtonCont>
       </main>

@@ -9,15 +9,6 @@ export default function Results() {
   const [cocktails, setCocktails] = useState([]);
   const [ingredient, setIngredient] = useState('');
 
-  const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
-
   const getRandomCocktails = async () => {
     const response = await fetch(
       'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -68,19 +59,6 @@ export default function Results() {
           />
           <Button labeltxt="Search" onClick={searchCocktailsByIngredient} />
         </div>
-        <div className={styles.search}>
-          <label htmlFor="name">Search by Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Button labeltxt="Search" onClick={searchCocktailsByName} />
-        </div>
-
-
-
 
         <div className={styles.buttons}>
           <Button labeltxt="Random Cocktails" onClick={getRandomCocktails} />

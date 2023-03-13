@@ -59,6 +59,25 @@ export default function Results() {
       <main className={styles.main1}>
         <h1 className={styles.h1}>YOUR SEARCH</h1>
         <div className={styles.search}>
+        <label htmlFor="ingredient">Search by Ingredient:</label>
+  <input
+    type="text"
+    id="ingredient"
+    value={ingredient}
+    onChange={(e) => setIngredient(e.target.value)}
+  />
+  <Button labeltxt="Search" onClick={searchCocktailsByIngredient} />
+</div>
+<div className={styles.search}>
+  <label htmlFor="name">Search by Name:</label>
+  <input
+    type="text"
+    id="name"
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+  />
+  <Button labeltxt="Search" onClick={searchCocktailsByName} />
+          
           <label htmlFor="ingredient">Search by Ingredient:</label>
           <input
             type="text"
@@ -68,17 +87,6 @@ export default function Results() {
           />
           <Button labeltxt="Search" onClick={searchCocktailsByIngredient} />
         </div>
-        <div className={styles.search}>
-          <label htmlFor="name">Search by Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Button labeltxt="Search" onClick={searchCocktailsByName} />
-        </div>
-
 
 
 

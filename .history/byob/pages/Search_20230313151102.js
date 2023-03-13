@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import Button from '@/components/button'
 import Input from '@/components/input'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 
 
 const Logo = styled.img`

@@ -1,24 +1,17 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
+import { Edu_NSW_ACT_Foundation, Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import Button from '@/components/Button';
+import { useEffect } from 'react';
 
 export default function Results() {
-  const [name, setName] = useState('');
   const [showCocktails, setShowCocktails] = useState(false);
   const [cocktails, setCocktails] = useState([]);
   const [ingredient, setIngredient] = useState('');
 
-  const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
-
-  const getRandomCocktails = async () => {
+  const getCocktails = async () => {
     const response = await fetch(
       'https://www.thecocktaildb.com/api/json/v1/1/random.php'
     );
@@ -27,24 +20,19 @@ export default function Results() {
     setShowCocktails(true);
   };
 
-  const getRandomMocktail = async () => {
-    const response = await fetch(
-      'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
-    );
-    const data = await response.json();
-    const randomIndex = Math.floor(Math.random() * data.drinks.length);
-    const randomMocktail = data.drinks[randomIndex];
-    setCocktails([randomMocktail]);
-    setShowCocktails(true);
-  };
+  const getRandomCocktails = async () => { const response = await fetch( 'https://www.thecocktaildb.com/api/json/v1/1/random.php' ); const data = await response.json(); setCocktails(data.drinks); setShowCocktails(true); };
 
-  const searchCocktailsByIngredient = async () => {
+  const searchCocktails = async () => {
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
     );
     const data = await response.json();
     setCocktails(data.drinks);
     setShowCocktails(true);
+  };
+
+  const handleInputChange = (event) => {
+    setIngredient(event.target.value);
   };
 
   return (
@@ -58,34 +46,21 @@ export default function Results() {
 
       <main className={styles.main1}>
         <h1 className={styles.h1}>YOUR SEARCH</h1>
-        <div className={styles.search}>
-          <label htmlFor="ingredient">Search by Ingredient:</label>
+        <div>
+          <label htmlFor="ingredient">Enter an ingredient:</label>
           <input
             type="text"
             id="ingredient"
+            name="ingredient"
             value={ingredient}
-            onChange={(e) => setIngredient(e.target.value)}
+            onChange={handleInputChange}
           />
-          <Button labeltxt="Search" onClick={searchCocktailsByIngredient} />
-        </div>
-        <div className={styles.search}>
-          <label htmlFor="name">Search by Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Button labeltxt="Search" onClick={searchCocktailsByName} />
+          <Button labeltxt="Search Cocktails" onClick={searchCocktails} />
         </div>
 
-
-
-
-        <div className={styles.buttons}>
-          <Button labeltxt="Random Cocktails" onClick={getRandomCocktails} />
-          <Button labeltxt="Random Mocktail" onClick={getRandomMocktail} />
-        </div>
+        {!showCocktails && (
+          <Button labeltxt="Random Cocktail" onClick={getRandomCocktails} />
+        )}
 
         {showCocktails && (
           <div className={styles.resultimg}>

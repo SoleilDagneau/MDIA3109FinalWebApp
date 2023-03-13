@@ -4,19 +4,8 @@ import styles from '@/styles/Home.module.css';
 import Button from '@/components/Button';
 
 export default function Results() {
-  const [name, setName] = useState('');
   const [showCocktails, setShowCocktails] = useState(false);
   const [cocktails, setCocktails] = useState([]);
-  const [ingredient, setIngredient] = useState('');
-
-  const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
 
   const getRandomCocktails = async () => {
     const response = await fetch(
@@ -38,15 +27,6 @@ export default function Results() {
     setShowCocktails(true);
   };
 
-  const searchCocktailsByIngredient = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };
-
   return (
     <>
       <Head>
@@ -58,29 +38,7 @@ export default function Results() {
 
       <main className={styles.main1}>
         <h1 className={styles.h1}>YOUR SEARCH</h1>
-        <div className={styles.search}>
-          <label htmlFor="ingredient">Search by Ingredient:</label>
-          <input
-            type="text"
-            id="ingredient"
-            value={ingredient}
-            onChange={(e) => setIngredient(e.target.value)}
-          />
-          <Button labeltxt="Search" onClick={searchCocktailsByIngredient} />
-        </div>
-        <div className={styles.search}>
-          <label htmlFor="name">Search by Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Button labeltxt="Search" onClick={searchCocktailsByName} />
-        </div>
-
-
-
+        <h2 className={styles.h2}>INGREDIENTS: "vodka"</h2>
 
         <div className={styles.buttons}>
           <Button labeltxt="Random Cocktails" onClick={getRandomCocktails} />
