@@ -6,12 +6,17 @@ import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
 import Button from '@/components/button'
 import Input from '@/components/input'
+<<<<<<< HEAD
 import axios from 'axios'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Results from './results'
+=======
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
-const inter = Inter({ subsets: ['latin'] })
+>>>>>>> main
+
 const Logo = styled.img`
 margin-top: -4rem;
 width: 18rem;
@@ -29,6 +34,7 @@ padding: 10px;
 `
 
 export default function Home() {
+<<<<<<< HEAD
   const router = useRouter();
   const [drinkData, setDrinkData] = useState({});
   const [drinkName, setDrinkName] = useState('');
@@ -94,6 +100,25 @@ export default function Home() {
         })
       setDrinkIngredient('')
     }
+=======
+
+  const router = useRouter();
+  const [cocktails, setCocktails] = useState([]);
+
+  async function fetchRandomCocktails() {
+    const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/randomselection.php');
+    const data = await res.json();
+    return data.drinks;
+  }
+
+  async function handleGenerateRandomCocktails() {
+    const randomCocktails = await fetchRandomCocktails();
+    setCocktails(randomCocktails);
+    router.push({
+      pathname: '/results',
+      query: { cocktails: JSON.stringify(randomCocktails) }
+    });
+>>>>>>> main
   }
 
   return (
@@ -164,6 +189,20 @@ export default function Home() {
         <div style={{display: isActiveTwo ? 'block' : 'none'}}>
             <Results passDrinkData={drinkData}/>
         </div>
+<<<<<<< HEAD
+=======
+        <Input txt='enter a cocktail name'/>
+        <Input txt='search by ingredients'/>
+        <br />
+        <h3 className={styles.h3}>OR</h3>
+        <ButtonCont>
+          <Button wd='7rem' labeltxt='Generate Random Cocktail' bg='#F4681E' marg='10px' wt='300' pad='10px' size='16px'/>
+
+          <Button onClick={handleGenerateRandomCocktails} wd='7rem' labeltxt='Generate Random Cocktails' bg='#F4681E' marg='10px' wt='300' pad='10px' size='16px'/>
+
+          <Button wd='7rem' labeltxt='Generate Random Mocktail' bg='#D8334F' marg='10px' wt='300' pad='10px' size='16px'/>
+        </ButtonCont>
+>>>>>>> main
       </main>
     </>
   )
