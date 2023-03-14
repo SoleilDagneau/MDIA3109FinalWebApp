@@ -37,7 +37,7 @@ export default function Home() {
               <h3 className={styles.h3}>become your own bartender.</h3>
           </div>
           <ButtonCont>
-            <Button wd='14rem' labeltxt='START MIXING' bg='#D8334F' pad='15px'/>
+            <a href='/search'><Button wd='14rem' labeltxt='START MIXING' bg='#D8334F' pad='15px'/></a>
           </ButtonCont>
         </Cont>
       </main>
