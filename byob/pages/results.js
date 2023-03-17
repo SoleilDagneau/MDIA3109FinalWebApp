@@ -2,6 +2,24 @@ import { useState } from 'react';
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Button from '@/components/Button';
+import styled from 'styled-components';
+
+
+const Logo = styled.img`
+margin-top: -4rem;
+width: 18rem;
+display: flex;
+`
+const Banner = styled.img`
+display: flex;
+align-items:baseline;
+margin-top: -2rem;
+`
+const ButtonCont = styled.div`
+display: flex;
+padding: 10px;
+
+`
 
 export default function Results() {
   const [name, setName] = useState('');
@@ -56,42 +74,55 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main1}>
-        <h1 className={styles.h1}>YOUR SEARCH</h1>
+      <main className={styles.main}>
+      <div>
+            <Banner src='/cocktailbanner.png' />
+        </div>
+        <div>
+            <Logo src='/BYOBLOGO.png' />
+        </div>
+        
+       
         <div className={styles.search}>
-          <label htmlFor="ingredient">Search by Ingredient:</label>
-          <input
+        
+          <input className={styles.input}
+          placeholder='Search by Ingredient'
             type="text"
             id="ingredient"
             value={ingredient}
             onChange={(e) => setIngredient(e.target.value)}
-          />
-          <Button labeltxt="Search" onClick={searchCocktailsByIngredient} />
+          /> 
+          <button className={styles.button1} onClick={searchCocktailsByIngredient}>➜</button>
+          
         </div>
         <div className={styles.search}>
-          <label htmlFor="name">Search by Name:</label>
-          <input
+          
+          <input className={styles.input}
+           placeholder='Search by Name'
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <Button labeltxt="Search" onClick={searchCocktailsByName} />
+          <button className={styles.button1} onClick={searchCocktailsByName}>➜</button>
+          
+        </div>
+        <div className={styles.or}>OR</div>
+        <div className={styles.buttons}> 
+            <Button onClick={getRandomCocktails} wd='7rem' labeltxt='Generate Random Cocktail' bg='#F4681E' marg='10px' wt='300' pad='10px' size='16px'/>
+            <Button onClick={getRandomMocktail} wd='7rem' labeltxt='Generate Random Mocktail' bg='#D8334F' marg='10px' wt='300' pad='10px' size='16px'/>
         </div>
 
+       
 
-
-
-        <div className={styles.buttons}>
-          <Button labeltxt="Random Cocktails" onClick={getRandomCocktails} />
-          <Button labeltxt="Random Mocktail" onClick={getRandomMocktail} />
-        </div>
+      
+        <h1 className={styles.h1}>YOUR SEARCH</h1>
 
         {showCocktails && (
           <div className={styles.resultimg}>
             {cocktails.map((cocktail) => (
               <figure key={cocktail.idDrink}>
-                <img src={cocktail.strDrinkThumb} />
+                <img className={styles.resimg} src={cocktail.strDrinkThumb} />
                 <figcaption>
                   <h2 className={styles.drinkname}>{cocktail.strDrink}</h2>
                   <h3 className={styles.ingredient}>
@@ -102,6 +133,7 @@ export default function Results() {
             ))}
           </div>
         )}
+
       </main>
     </>
   );
