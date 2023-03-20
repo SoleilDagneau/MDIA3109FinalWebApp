@@ -1,21 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Edu_NSW_ACT_Foundation, Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
 import Button from '@/components/button'
 import Input from '@/components/input'
-<<<<<<< HEAD
-import axios from 'axios'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import Results from './results'
-=======
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
->>>>>>> main
 
 const Logo = styled.img`
 margin-top: -4rem;
@@ -34,73 +26,6 @@ padding: 10px;
 `
 
 export default function Home() {
-<<<<<<< HEAD
-  const router = useRouter();
-  const [drinkData, setDrinkData] = useState({});
-  const [drinkName, setDrinkName] = useState('');
-  const [drinkIngredient, setDrinkIngredient] = useState('');
-  const [error, setErrorMessage] = useState('');
-
-  const [isActiveOne, setIsActiveOne] = useState(true);
-  const [isActiveTwo, setIsActiveTwo] = useState(false);
-  
-
-  const randDrink = async () => {
-    const res = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
-    setDrinkData(res);
-    console.log(res);
-
-    setTimeout(() => {
-      setIsActiveOne(false);
-      setIsActiveTwo(true);
-    }, 500);
-    
-    //changePage();
-  }
-
-  //const changePage = async () => {
-  //   router.push({
-  //     pathname: '/results',
-  //     query: {
-  //       data: drinkData
-  //     },
-  //   });
-  // }
-
-  const searchDrinkName = (event) => {
-    if (event.key === "Enter") {
-      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
-        .then((response) => {
-          console.clear();
-          setDrinkData(response.data)
-          console.log(response.data);
-          setDrinkName(response.data.drinks.strDrink);
-          setErrorMessage("");
-        }).catch(err => {
-          console.log(err);
-          setErrorMessage("Enter another name")
-          setData({});
-        })
-      setDrinkName('')
-    }
-  }
-
-  const searchDrinkIngredient = (event) => {
-    if (event.key === "Enter") {
-      axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngredient}`)
-        .then((response) => {
-          console.clear();
-          setDrinkData(response.data)
-          console.log(response.data);
-          setErrorMessage("");
-        }).catch(err => {
-          console.log(err);
-          setErrorMessage("Enter another ingredient")
-          setData({});
-        })
-      setDrinkIngredient('')
-    }
-=======
 
   const router = useRouter();
   const [cocktails, setCocktails] = useState([]);
@@ -118,7 +43,6 @@ export default function Home() {
       pathname: '/results',
       query: { cocktails: JSON.stringify(randomCocktails) }
     });
->>>>>>> main
   }
 
   return (
@@ -130,67 +54,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        
-        <div style={{display: isActiveOne ? 'block' : 'none'}}>
-
-          <div>
+        <div>
             <Banner src='/cocktailbanner.png' />
-          </div>
-          <div>
+        </div>
+        <div>
             <Logo src='/BYOBLOGO.png' />
-          </div>
-          <input
-            txt='enter a cocktail name'
-            value={drinkName}
-            onChange={event => setDrinkName(event.target.value)}
-            onKeyDown={searchDrinkName}
-            type="text"
-          />
-          <input
-            txt='search by ingredients'
-            value={drinkIngredient}
-            onChange={event => setDrinkIngredient(event.target.value)}
-            onKeyDown={searchDrinkIngredient}
-            type="text"
-          />
-          <br />
-          <h3 className={styles.h3}>OR</h3>
-          <ButtonCont>
-            {/* <Link
-              href={{
-                pathname: "/results",
-                query: drinkData,
-              }}> */}
-
-            
-            <Button
-              onClick={() => randDrink()}
-              wd='7rem'
-              labeltxt='Generate Random Cocktail'
-              bg='#F4681E'
-              marg='10px'
-              wt='300'
-              pad='10px'
-              size='16px'
-            />
-            {/* </Link> */}
-            <Button
-              wd='7rem'
-              labeltxt='Generate Random Mocktail'
-              bg='#D8334F'
-              marg='10px'
-              wt='300'
-              pad='10px'
-              size='16px'
-            />
-          </ButtonCont>
         </div>
-        
-        <div style={{display: isActiveTwo ? 'block' : 'none'}}>
-            <Results passDrinkData={drinkData}/>
-        </div>
-<<<<<<< HEAD
-=======
         <Input txt='enter a cocktail name'/>
         <Input txt='search by ingredients'/>
         <br />
@@ -202,7 +71,6 @@ export default function Home() {
 
           <Button wd='7rem' labeltxt='Generate Random Mocktail' bg='#D8334F' marg='10px' wt='300' pad='10px' size='16px'/>
         </ButtonCont>
->>>>>>> main
       </main>
     </>
   )

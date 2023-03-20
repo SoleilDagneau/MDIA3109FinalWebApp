@@ -5,7 +5,6 @@ import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
 import Button from '@/components/button'
 
-const inter = Inter({ subsets: ['latin'] })
 const Logo = styled.img`
 width: 18rem;
 display: flex;
