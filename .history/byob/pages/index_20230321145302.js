@@ -19,7 +19,7 @@ const Cont = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-margin-top: 30px;
+margin-top: 12rem;
 `
 
 const ButtonCont = styled.div`
