@@ -4,9 +4,6 @@ import styles from '@/styles/Home.module.css';
 import Button from '@/components/Button';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Menu from '@/components/menu'
-import MenuIcon from '@/components/menuicon'
-
 
 
 const Logo = styled.img`
@@ -78,12 +75,6 @@ export default function Results() {
   };
   
 
-  const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
-
-  const handlePopupMenuClick = () => {
-    setIsPopupMenuOpen(!isPopupMenuOpen);
-  };
-
   return (
     <>
       <Head>
@@ -94,15 +85,6 @@ export default function Results() {
       </Head>
 
       <main className={styles.main}>
-      <header>
-        <nav>
-         
-              <MenuIcon onClick={handlePopupMenuClick} />
-           
-        </nav>
-      </header>
-      {isPopupMenuOpen && <Menu />}
-
         <div>
             <Logo src='/BYOBLOGO.png' />
         </div>

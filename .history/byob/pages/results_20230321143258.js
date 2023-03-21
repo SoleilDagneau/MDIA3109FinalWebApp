@@ -4,9 +4,6 @@ import styles from '@/styles/Home.module.css';
 import Button from '@/components/Button';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Menu from '@/components/menu'
-import MenuIcon from '@/components/menuicon'
-
 
 
 const Logo = styled.img`
@@ -31,17 +28,24 @@ export default function Results() {
   const [cocktails, setCocktails] = useState([]);
   const [ingredient, setIngredient] = useState('');
   const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
 
 
   const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
+    try {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+      );
+      const data = await response.json();
+      setCocktails(data.drinks);
+      setShowCocktails(true);
+    } catch (error) {
+      setError('Invalid input. Please enter a valid cocktail name.');
+    }
+  };
+  
+  
 
   const getRandomCocktails = async () => {
     const response = await fetch(
@@ -78,12 +82,6 @@ export default function Results() {
   };
   
 
-  const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
-
-  const handlePopupMenuClick = () => {
-    setIsPopupMenuOpen(!isPopupMenuOpen);
-  };
-
   return (
     <>
       <Head>
@@ -94,15 +92,6 @@ export default function Results() {
       </Head>
 
       <main className={styles.main}>
-      <header>
-        <nav>
-         
-              <MenuIcon onClick={handlePopupMenuClick} />
-           
-        </nav>
-      </header>
-      {isPopupMenuOpen && <Menu />}
-
         <div>
             <Logo src='/BYOBLOGO.png' />
         </div>
@@ -134,6 +123,8 @@ export default function Results() {
           <button className={styles.button1} onClick={searchCocktailsByName}><span>➜</span></button>
           
         </div>
+        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+
         <div className={styles.or}>OR</div>
         <div className={styles.buttons}> 
             <button onClick={getRandomCocktails}>Generate Random <br/>Cocktail</button>
