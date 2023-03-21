@@ -10,7 +10,6 @@ import { useState } from 'react';
 
 
 
-const inter = Inter({ subsets: ['latin'] })
 const Logo = styled.img`
 width: 18rem;
 display: flex;
