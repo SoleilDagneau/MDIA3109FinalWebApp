@@ -7,10 +7,10 @@
       "icon": "marisa_marker.png"
     },
     {
-      "lat": 49.2862526257819,
-      "lng": -123.1202039,
-      "name": "Marisa's Pick",
-      "bar": "Arms Pub",
+      "lat": 49.282787,
+      "lng": -123.104256,
+      "name": "Soleils's Pick",
+      "bar": "Blarney Stone",
       "icon": "soleil_marker.png"
     },
     {
@@ -19,6 +19,36 @@
       "name": "Marisa's Pick",
       "bar": "Arms Pub",
       "icon": "desmand_marker.png"
+    },
+    {
+      "lat": 49.2644,
+      "lng": -123.1011,
+      "name": "Soleils's Pick",
+      "bar": "Key Party",
+      "icon": "soleil_marker.png"
+    },
+    {
+      "lat": 49.2825,
+      "lng": -123.1058,
+      "name": "Soleils's Pick",
+      "bar": "GRETA",
+      "icon": "soleil_marker.png"
     }
+    ,
+    {
+      "lat": 49.2795075245,
+      "lng": -123.120475392,
+      "name": "Soleils's Pick",
+      "bar": "UVA Wine & Cocktail Bar",
+      "icon": "soleil_marker.png"
+    },
+    {
+      "lat": 49.2755,
+      "lng": -123.1226,
+      "name": "Soleils's Pick",
+      "bar": "The Stock Room",
+      "icon": "soleil_marker.png"
+    }
+
   ]
   

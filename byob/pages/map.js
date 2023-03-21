@@ -2,8 +2,18 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 import Map from '../components/Map'
+import Menu from '@/components/menu'
+import MenuIcon from '@/components/menuicon'
+import { useState } from 'react';
+
 
 export default function Home() {
+  const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
+
+  const handlePopupMenuClick = () => {
+    setIsPopupMenuOpen(!isPopupMenuOpen);
+  };
+
   return (
     <>
       <Head>
@@ -12,9 +22,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/busicon.png" />
       </Head>
+      
       <main className={styles.main}>
+      <header>
+        <nav>
+          
+              <MenuIcon onClick={handlePopupMenuClick} />
+           
+        </nav>
+      </header>
+      {isPopupMenuOpen && <Menu />}
         <Map/>
       </main>
     </>
   )
 }
+
+
