@@ -14,10 +14,31 @@
       "icon": "soleil_marker.png"
     },
     {
-      "lat": 49.283438850308286,
-      "lng": -123.11621933259502,
-      "name": "Marisa's Pick",
-      "bar": "Arms Pub",
+      "lat": 49.29103826615136, 
+      "lng": -123.13636446118576,
+      "name": "Desmand's Pick",
+      "bar": "Buckstop",
+      "icon": "desmand_marker.png"
+    },
+    {
+      "lat": 49.282107038574985, 
+      "lng": -123.12396907562801,
+      "name": "Desmand's Pick",
+      "bar": "The Ballyhoo",
+      "icon": "desmand_marker.png"
+    },
+    {
+      "lat": 49.27870313131185, 
+      "lng": -123.0980104020548,
+      "name": "Desmand's Pick",
+      "bar": "Blnd Tger Dumplings",
+      "icon": "desmand_marker.png"
+    },
+    {
+      "lat": 49.28010882925392, 
+      "lng": -123.10849893219927,
+      "name": "Desmand's Pick",
+      "bar": "Pizzeria Ludica",
       "icon": "desmand_marker.png"
     }
   ]
