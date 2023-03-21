@@ -18,7 +18,7 @@ const Cont = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-margin-top: 12rem;
+margin-top: 30px;
 `
 
 const ButtonCont = styled.div`
@@ -37,14 +37,13 @@ const HomePage = () => {
     <div className={styles.main}>
       <header>
         <nav>
-          <ul>
-            <li>
+          
               <MenuIcon onClick={handlePopupMenuClick} />
-            </li>
-          </ul>
+           
         </nav>
       </header>
       {isPopupMenuOpen && <Menu />}
+      <img className={styles.circleImg} src='byobcircle.png' />
       <main>
       <Cont>
           <div>
@@ -61,4 +60,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
