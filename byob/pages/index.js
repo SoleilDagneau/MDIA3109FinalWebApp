@@ -38,11 +38,9 @@ const HomePage = () => {
     <div className={styles.main}>
       <header>
         <nav>
-          <ul>
-            <li>
+          
               <MenuIcon onClick={handlePopupMenuClick} />
-            </li>
-          </ul>
+           
         </nav>
       </header>
       {isPopupMenuOpen && <Menu />}

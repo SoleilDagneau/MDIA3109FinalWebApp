@@ -87,11 +87,9 @@ export default function Results() {
       <main className={styles.main}>
       <header>
         <nav>
-          <ul>
-            <li>
+         
               <MenuIcon onClick={handlePopupMenuClick} />
-            </li>
-          </ul>
+           
         </nav>
       </header>
       {isPopupMenuOpen && <Menu />}
@@ -104,7 +102,7 @@ export default function Results() {
         <div className={styles.search}>
         
           <input className={styles.input}
-          placeholder='Search by Ingredient'
+          placeholder='Search by Alcohol'
             type="text"
             id="ingredient"
             value={ingredient}
