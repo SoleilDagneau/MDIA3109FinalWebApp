@@ -107,7 +107,7 @@ export default function Results() {
 
           
           <input className={styles.input}
-           placeholder='Search by Drink Name'
+           placeholder='Search by Name'
             type="text"
             id="name"
             value={name}

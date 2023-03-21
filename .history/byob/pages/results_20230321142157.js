@@ -27,18 +27,23 @@ export default function Results() {
   const [showCocktails, setShowCocktails] = useState(false);
   const [cocktails, setCocktails] = useState([]);
   const [ingredient, setIngredient] = useState('');
-  const [error, setError] = useState(null);
-
+  const [errorMessage, setErrorMessage] = useState('');
 
 
   const searchCocktailsByName = async () => {
+    if (name.trim() === '') {
+      setErrorMessage('Please enter a valid name');
+      setShowCocktails(false);
+      return;
+    }
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
     );
     const data = await response.json();
     setCocktails(data.drinks);
     setShowCocktails(true);
-  };  
+    setErrorMessage('');
+  };
 
   const getRandomCocktails = async () => {
     const response = await fetch(
@@ -61,19 +66,19 @@ export default function Results() {
   };
 
   const searchCocktailsByIngredient = async () => {
-    try {
-      const response = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
-      );
-      const data = await response.json();
-      setCocktails(data.drinks);
-      setShowCocktails(true);
-      setError(null);
-    } catch (error) {
-      setError('Invalid input. Please try again.');
+    if (ingredient.trim() === '') {
+      setErrorMessage('Please enter a valid ingredient');
+      setShowCocktails(false);
+      return;
     }
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
+    );
+    const data = await response.json();
+    setCocktails(data.drinks);
+    setShowCocktails(true);
+    setErrorMessage('');
   };
-  
 
   return (
     <>
@@ -93,21 +98,19 @@ export default function Results() {
         <div className={styles.search}>
         
           <input className={styles.input}
-          placeholder='Search by Alcohol'
+          placeholder='Search by Ingredient'
             type="text"
             id="ingredient"
             value={ingredient}
             onChange={(e) => setIngredient(e.target.value)}
           /> 
           <button className={styles.button1} onClick={searchCocktailsByIngredient}><span>➜</span></button>
-   
-        </div>          
-        {error && <p className={styles.errorMessage}>{error}</p>}
-        <div className={styles.search}> 
-
+          
+        </div>
+        <div className={styles.search}>
           
           <input className={styles.input}
-           placeholder='Search by Drink Name'
+           placeholder='Search by Name'
             type="text"
             id="name"
             value={name}

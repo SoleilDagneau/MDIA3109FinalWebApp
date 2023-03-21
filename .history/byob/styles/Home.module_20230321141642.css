@@ -461,13 +461,6 @@ margin: 6%;
 }
 
 .circleImg {
-  margin-top: 80px;
+  margin-top: ;
   width: 200px;
-}
-
-.errorMessage {
-  margin-top: 2px;
-  font-family: 'Quicksand', sans-serif;
-  color: #FCD581;
-  font-size: 12px;
 }

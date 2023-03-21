@@ -465,9 +465,4 @@ margin: 6%;
   width: 200px;
 }
 
-.errorMessage {
-  margin-top: 2px;
-  font-family: 'Quicksand', sans-serif;
-  color: #FCD581;
-  font-size: 12px;
-}
+.errorMessage 

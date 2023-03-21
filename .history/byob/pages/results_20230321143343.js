@@ -32,13 +32,19 @@ export default function Results() {
 
 
   const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
+    try {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+      );
+      const data = await response.json();
+      setCocktails(data.drinks);
+      setShowCocktails(true);
+    } catch (error) {
+      setError('Invalid input. Please enter a valid cocktail name.');
+    }
+  };
+  
+  
 
   const getRandomCocktails = async () => {
     const response = await fetch(
@@ -116,6 +122,8 @@ export default function Results() {
           <button className={styles.button1} onClick={searchCocktailsByName}><span>➜</span></button>
           
         </div>
+        {error && <p className={styles.errorMessage}>{error}</p>}
+
         <div className={styles.or}>OR</div>
         <div className={styles.buttons}> 
             <button onClick={getRandomCocktails}>Generate Random <br/>Cocktail</button>

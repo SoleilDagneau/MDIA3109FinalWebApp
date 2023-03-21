@@ -93,21 +93,26 @@ export default function Results() {
         <div className={styles.search}>
         
           <input className={styles.input}
-          placeholder='Search by Alcohol'
+          placeholder='Search by Ingredient'
             type="text"
             id="ingredient"
             value={ingredient}
             onChange={(e) => setIngredient(e.target.value)}
           /> 
           <button className={styles.button1} onClick={searchCocktailsByIngredient}><span>➜</span></button>
-   
-        </div>          
-        {error && <p className={styles.errorMessage}>{error}</p>}
-        <div className={styles.search}> 
+          <br/>
+          <div>
+
+          </div>
+
 
           
+        </div>
+        <div className={styles.search}> 
+            {error && <p>{error}</p>}
+          
           <input className={styles.input}
-           placeholder='Search by Drink Name'
+           placeholder='Search by Name'
             type="text"
             id="name"
             value={name}

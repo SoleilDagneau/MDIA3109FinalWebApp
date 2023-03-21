@@ -28,17 +28,24 @@ export default function Results() {
   const [cocktails, setCocktails] = useState([]);
   const [ingredient, setIngredient] = useState('');
   const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
 
 
   const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
+    try {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+      );
+      const data = await response.json();
+      setCocktails(data.drinks);
+      setShowCocktails(true);
+    } catch (error) {
+      setErrorMessage('Invalid input. Please enter a valid cocktail name.');
+    }
+  };
+  
+  
 
   const getRandomCocktails = async () => {
     const response = await fetch(

@@ -32,13 +32,19 @@ export default function Results() {
 
 
   const searchCocktailsByName = async () => {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
-    );
-    const data = await response.json();
-    setCocktails(data.drinks);
-    setShowCocktails(true);
-  };  
+    try {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+      );
+      const data = await response.json();
+      setCocktails(data.drinks);
+      setShowCocktails(true);
+      setError(null);
+    } catch (error) {
+      setError('Invalid input. Please try again.');
+    }
+  };
+  
 
   const getRandomCocktails = async () => {
     const response = await fetch(

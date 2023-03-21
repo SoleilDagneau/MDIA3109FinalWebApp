@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
 import Button from '@/components/button'
 
+const inter = Inter({ subsets: ['latin'] })
 const Logo = styled.img`
 width: 18rem;
 display: flex;
@@ -12,7 +14,7 @@ const Cont = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-margin-top: 50px;
+margin-top: 12rem;
 `
 
 const ButtonCont = styled.div`
@@ -29,7 +31,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <img className={styles.circleImg} src='byobcircle.png' />
+        
         <Cont>
           <div>
               <Logo src='/BYOBLOGO.png' />

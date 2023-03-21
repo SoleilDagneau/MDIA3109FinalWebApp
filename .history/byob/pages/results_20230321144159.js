@@ -129,7 +129,7 @@ export default function Results() {
 
         {showCocktails && (
           <div className={styles.resultimg}>
-            {cocktails.map((cocktail) => (
+            {cocktails?.map((cocktail) => (
               <Link
               key={cocktail.idDrink}
               href={`/recipe?id=${cocktail.idDrink}`}
