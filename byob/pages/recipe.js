@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styled from 'styled-components'
 import styles from '@/styles/Home.module.css'
 import Head from "next/head";
+import Image from "next/image";
 
 const Logo = styled.img`
 width: 18rem;
@@ -19,9 +20,14 @@ const ButtonCont = styled.div`
 margin-top: 70px;
 `
 
+
 const Recipe = () => {
   const router = useRouter();
   const [cocktail, setCocktail] = useState(null);
+
+  function handleClick() {
+    router.push('/results');
+  }
 
   useEffect(() => {
     const fetchCocktail = async () => {
@@ -44,7 +50,9 @@ const Recipe = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <Image className={styles.backbutton} onClick={handleClick} src='/arrow.svg' width='70' height='70' />
     <div className={styles.recipeContainer}>
+      
       {cocktail ? (
         <div>
           <img className={styles.recipeImage} src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
