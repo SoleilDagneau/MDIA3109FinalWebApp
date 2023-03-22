@@ -7,31 +7,10 @@
       "icon": "marisa_marker.png"
     },
     {
-      "lat": 49.25815095732788, 
-      "lng": -122.72925644687822,
+      "lat": 49.253679824738725,
+      "lng": -122.73314604793974,
       "name": "Marisa's Pick",
-      "bar": "Boardwalk Brewing",
-      "icon": "marisa_marker.png"
-    },
-    {
-      "lat": 49.27980485517185,
-      "lng": -123.12297423259514,
-      "name": "Marisa's Pick",
-      "bar": "El Furniture Warehouse",
-      "icon": "marisa_marker.png"
-    },
-    {
-      "lat": 49.27665867010588,
-      "lng": -123.10016827492336,
-      "name": "Marisa's Pick",
-      "bar": "The Boxcar",
-      "icon": "marisa_marker.png"
-    },
-    {
-      "lat": 49.27641910549358,
-      "lng":  -123.09967921803639,
-      "name": "Marisa's Pick",
-      "bar": "The American",
+      "bar": "Nicelife Cocktails",
       "icon": "marisa_marker.png"
     },
     {
