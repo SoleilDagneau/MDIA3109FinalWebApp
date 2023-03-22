@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 
 
+
 const Logo = styled.img`
 width: 18rem;
 display: flex;
@@ -18,6 +19,10 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 margin-top: 30px;
+`
+
+const ButtonCont = styled.div`
+margin-top: 70px;
 `
 
 

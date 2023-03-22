@@ -7,6 +7,13 @@ import Link from 'next/link';
 import Menu from '@/components/menu'
 import MenuIcon from '@/components/menuicon'
 
+
+
+const Logo = styled.img`
+margin-top: 50px;
+width: 18rem;
+display: flex;
+`
 const Banner = styled.img`
 display: flex;
 align-items:baseline;
@@ -97,7 +104,7 @@ export default function Results() {
       {isPopupMenuOpen && <Menu />}
 
         <div>
-            <img className={styles.logo} src='/BYOBLOGO.png' />
+            <img  src='/BYOBLOGO.png' />
         </div>
         
        

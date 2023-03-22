@@ -330,10 +330,10 @@ grid-template-rows: 1fr 1fr;
 
 .map {
   width: 600px;
-  height: 100vh;
+  height: 600px;
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .leaflet-popup-content {
@@ -420,7 +420,7 @@ margin: 6%;
 }
 
 .recipeImage {
-  width: 90%;
+  width: 70%;
   height: 70%;
   margin-bottom: 2rem;
   border-radius: 10px;
@@ -438,8 +438,7 @@ margin: 6%;
 .backbutton {
   position: absolute;
   top: 0px;
-  left: 10px;
-  width: 40px;
+  left: 0px;
 }
 
 .recipeContainer {
@@ -447,14 +446,14 @@ margin: 6%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 70px;
+  margin-left: 100px;
 }
 
 .recipeHeader {
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   color: #F54E59;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -475,8 +474,8 @@ margin: 6%;
 
 .menubutton {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 0;
+  top: 0;
 }
 
 .circleImg {
@@ -492,11 +491,9 @@ margin: 6%;
 }
 
 .logo {
-margin-top: 80px;
+margin-top: 50px;
 width: 18rem;
 display: flex;
 }
 
-.buttonCont {
-margin-top: 60px;
-}
+.buttonCont
