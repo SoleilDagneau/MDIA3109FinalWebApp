@@ -21,6 +21,14 @@ justify-content: space-between;
 margin-top: 30px;
 `
 
+const ButtonCont = styled.div`
+const Logo = styled.img`
+margin-top: 50px;
+width: 18rem;
+display: flex;
+`
+`
+
 
 const HomePage = () => {
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);

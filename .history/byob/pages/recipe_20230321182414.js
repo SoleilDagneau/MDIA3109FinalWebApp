@@ -53,21 +53,19 @@ const Recipe = () => {
         <Image className={styles.backbutton} onClick={handleClick} src='/arrow.svg' width='70' height='70' />
     <div className={styles.recipeContainer}>
       
-      {cocktail ? (
-        <div>
-          <img className={styles.recipeImage} src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-          <h1 className={styles.recipeTitle}>{cocktail.strDrink}</h1>
-          <h2 className={styles.recipeHeader}>INGREDIENTS</h2>
-          <ul>
-            {Object.keys(cocktail)
-              .filter((key) => key.startsWith("strIngredient"))
-              .map((key, index) => {
-                if (cocktail[key]) {
-                  return <li className={styles.recipeItems} key={key}>✰  {cocktail[`strMeasure${index + 1}`]} {cocktail[key]}</li>;
-                }
-                return null;
-              })}
-          </ul>
+    {Object.keys(cocktail)
+  .filter((key) => key.startsWith("strIngredient"))
+  .map((key, index) => {
+    if (cocktail[key]) {
+      return (
+        <li className={styles.recipeItems} key={key}>
+          ✰ {cocktail[key]} {cocktail[`strMeasure${index + 1}`]}
+        </li>
+      );
+    }
+    return null;
+  })}
+
           
           <h2 className={styles.recipeHeader}>INSTRUCTIONS</h2>
           <p className={styles.recipeInfo}>{cocktail.strInstructions}</p>

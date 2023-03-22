@@ -21,6 +21,10 @@ justify-content: space-between;
 margin-top: 30px;
 `
 
+const ButtonCont = styled.div`
+margin-top: 70px;
+`
+
 
 const HomePage = () => {
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
@@ -46,9 +50,9 @@ const HomePage = () => {
               <Logo src='/BYOBLOGO.png' />
               <h3 className={styles.h3}>become your own bartender.</h3>
           </div>
-          <div className={styles.buttonCont}>
+          <ButtonCont>
             <a href='/results'><Button wd='14rem' labeltxt='START MIXING' bg='#D8334F' pad='15px'/></a>
-          </div>
+          </ButtonCont>
         </Cont>
       </main>
     </div>

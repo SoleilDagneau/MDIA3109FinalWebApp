@@ -330,10 +330,10 @@ grid-template-rows: 1fr 1fr;
 
 .map {
   width: 600px;
-  height: 100vh;
+  height: 600px;
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .leaflet-popup-content {
@@ -475,8 +475,8 @@ margin: 6%;
 
 .menubutton {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 0;
+  top: 0;
 }
 
 .circleImg {
@@ -492,7 +492,7 @@ margin: 6%;
 }
 
 .logo {
-margin-top: 80px;
+margin-top: 50px;
 width: 18rem;
 display: flex;
 }

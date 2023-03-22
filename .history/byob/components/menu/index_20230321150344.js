@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const MenuCont = styled.div`
 position: absolute;
-top: 70px;
+top: 58px;
 left: 0;
 background-color: #D8334F;
 padding: 10px;
@@ -16,7 +16,6 @@ margin: 5px 0;
 font-family: 'Quicksand', sans-serif;
 font-size: 18px;
 color: white;
-border-radius: 5px;
 `
 
 const Menu = () => {

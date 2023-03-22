@@ -16,7 +16,6 @@ margin: 5px 0;
 font-family: 'Quicksand', sans-serif;
 font-size: 18px;
 color: white;
-border-radius: 5px;
 `
 
 const Menu = () => {

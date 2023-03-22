@@ -333,7 +333,7 @@ grid-template-rows: 1fr 1fr;
   height: 100vh;
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .leaflet-popup-content {

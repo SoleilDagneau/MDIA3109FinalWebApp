@@ -21,6 +21,10 @@ justify-content: space-between;
 margin-top: 30px;
 `
 
+const ButtonCont = styled.div`
+margin-top: 70px;
+`
+
 
 const HomePage = () => {
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);

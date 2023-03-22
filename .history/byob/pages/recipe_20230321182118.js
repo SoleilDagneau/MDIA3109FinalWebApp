@@ -59,15 +59,23 @@ const Recipe = () => {
           <h1 className={styles.recipeTitle}>{cocktail.strDrink}</h1>
           <h2 className={styles.recipeHeader}>INGREDIENTS</h2>
           <ul>
-            {Object.keys(cocktail)
-              .filter((key) => key.startsWith("strIngredient"))
-              .map((key, index) => {
-                if (cocktail[key]) {
-                  return <li className={styles.recipeItems} key={key}>✰  {cocktail[`strMeasure${index + 1}`]} {cocktail[key]}</li>;
-                }
-                return null;
-              })}
-          </ul>
+                      {Object.keys(cocktail)
+                        .filter((key) => key.startsWith("strIngredient") && cocktail[key])
+                        .map((key) => (
+                          <li key={key}>{cocktail[key]}</li>
+                        ))}
+                    </ul>
+                  </div>
+                  <div className={styles.measurements}>
+                    <p>Measurements:</p>
+                    <ul>
+                      {Object.keys(cocktail)
+                        .filter((key) => key.startsWith("strMeasure") && cocktail[key])
+                        .map((key) => (
+                          <li key={key}>{cocktail[key]}</li>
+                        ))}
+                    </ul>
+                  </div>
           
           <h2 className={styles.recipeHeader}>INSTRUCTIONS</h2>
           <p className={styles.recipeInfo}>{cocktail.strInstructions}</p>
