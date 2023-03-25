@@ -1,9 +1,10 @@
-### DK DEV branch ready to rock n' roll!
+
 ## About
 
 ## To run tests
 1. in terminal: npm run start
 2. open a second terminal: npm run test:e2e
+
 ## About
 
 BYOB is an app for discovering new cocktail and mocktail drinks. Use our search engine to discover new cocktails/mocktails through the search by ingredient or cocktail type feature, or through the generate a random cocktail or mocktail feature. Click on any cocktail in your search results and find the ingredients and recipe for the drink. You can also discover some of the creators favourite spots in Vancouver for cocktails and mocktails.
