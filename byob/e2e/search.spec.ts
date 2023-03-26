@@ -29,6 +29,6 @@ test.describe('Main area', () => {
     test('Count number of divs in the main area', async({ page }) => {
         await page.goto(urlSearch)
 
-        await expect(page.locator('div')).toHaveCount(9);
+        await expect(page.locator('div')).toHaveCount(12);
     })
 })
