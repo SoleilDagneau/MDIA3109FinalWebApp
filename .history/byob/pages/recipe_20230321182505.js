@@ -61,9 +61,9 @@ const Recipe = () => {
           <ul>
             {Object.keys(cocktail)
               .filter((key) => key.startsWith("strIngredient"))
-              .map((key, index) => {
+              .map((key) => {
                 if (cocktail[key]) {
-                  return <li className={styles.recipeItems} key={key}>✰  {cocktail[`strMeasure${index + 1}`]} {cocktail[key]}</li>;
+                  return <li className={styles.recipeItems} key={key}>✰ {cocktail[key]} {cocktail[`strMeasure${index + 1}`]}</li>
                 }
                 return null;
               })}

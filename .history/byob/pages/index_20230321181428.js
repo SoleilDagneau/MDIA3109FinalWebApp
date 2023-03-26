@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
+
 import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
 import Button from '@/components/button'
 import Menu from '@/components/menu'
 import MenuIcon from '@/components/menuicon'
 import { useState } from 'react';
+
 
 
 
@@ -18,6 +20,10 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 margin-top: 30px;
+`
+
+const ButtonCont = styled.div`
+margin-top: 70px;
 `
 
 
@@ -45,9 +51,9 @@ const HomePage = () => {
               <Logo src='/BYOBLOGO.png' />
               <h3 className={styles.h3}>become your own bartender.</h3>
           </div>
-          <div className={styles.buttonCont}>
+          <ButtonCont>
             <a href='/results'><Button wd='14rem' labeltxt='START MIXING' bg='#D8334F' pad='15px'/></a>
-          </div>
+          </ButtonCont>
         </Cont>
       </main>
     </div>
