@@ -2,9 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import styled from 'styled-components'
-import Button from '@/components/button'
-import Menu from '@/components/menu'
-import MenuIcon from '@/components/menuicon'
+import Button from '@/components/Button'
+import Menu from '@/components/Menu'
+import MenuIcon from '@/components/Menuicon'
 import { useState } from 'react';
 
 
