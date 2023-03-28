@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import Button from '@/components/Button';
+import Button from '@/components/ButtonComponent';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Menu from '@/components/Menu'
-import MenuIcon from '@/components/Menuicon'
+import Menu from '@/components/MenuComponent'
+import MenuIcon from '@/components/MenuIconComponent'
 
 const Banner = styled.img`
 display: flex;
