@@ -4,8 +4,8 @@ import styles from '@/styles/Home.module.css';
 import Button from '@/components/Button';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Menu from '@/components/menu'
-import MenuIcon from '@/components/menuicon'
+import Menu from '@/components/Menu'
+import MenuIcon from '@/components/Menuicon'
 
 const Banner = styled.img`
 display: flex;

@@ -2,8 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 import Map from '../components/Map'
-import Menu from '@/components/menu'
-import MenuIcon from '@/components/menuicon'
+import Menu from '@/components/Menu'
+import MenuIcon from '@/components/Menuicon'
 import { useState } from 'react';
 
 
